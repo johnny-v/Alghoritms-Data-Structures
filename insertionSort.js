@@ -103,10 +103,11 @@ console.log(index);
 
     Loop Invariant:
        Initialization (It is true prior to the first iteration of the loop.):
-          i = A.length - 1; the subarray A[0...i-1] consists of just the single element A[A.length - 1] which is in fact the original element in A[A.length - 1] and the subarray B[0...i-1] consists of just the single element B[A.length - 1] which is in fact the original element in B[A.length - 1].
+          i = A.length - 1; carryOver = 0; the subarray A[0...i-1] consists of just the single element A[A.length - 1] which is in fact the original element in A[A.length - 1] and the subarray B[0...i-1] consists of just the single element B[A.length - 1] which is in fact the original element in B[A.length - 1].
           Moreover the initial value of the Array C[0...n+1] is the empty array.
        Maintenance (It is true before an iteration of the loop. It remains true before the next iteration of the loop.):
-           Each iteration maintains the loop invariant. The body of the for loop works by iterating through the array A[0...n] and B[0...n], adding at each iteration the value A[i] and B[i] in binary system to the array C[0...n+1].
+           Each iteration maintains the loop invariant. The body of the for loop works by iterating through the array A[0...n] and B[0...n], adding at each iteration the value A[i] and B[i] and the carry Over in binary system to the array C[0...n+1].
+           If there is no carry over, then the initial value of the carryOver is 0.
        Termination (When the loop terminates, the invariant gives us a useful property that helps show that the algorithm is correct):
          The loop terminates if the iterator i = 0 and the carryOver is stored in C[n+1]. Because each loop iteration decreases i by one, we must have i = A.length - 1 at that time.
 */
